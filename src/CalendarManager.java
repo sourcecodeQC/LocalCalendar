@@ -28,7 +28,7 @@ public class CalendarManager {
             System.out.println("No events found.");
         } else {
             System.out.println("Events:");
-            for (Event event : events) { //for (int i = 0; i < events.size(); i++)
+            for (Event event : events) { //for (int i = 0; i < events.size(); i++) https://www.w3schools.com/java/java_foreach_loop.asp
                 System.out.println(event);
             }
         }
