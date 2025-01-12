@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 public class PriorityCollisionHandler {
     public static boolean checkCollision(List<Event> events, String newDate, int newStartTime, int newEndTime, int priority){
