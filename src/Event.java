@@ -3,12 +3,14 @@ public class Event {
     private String date; // yyy-mm-dd
     private int startTime; // in minutes from midnight
     private int endTime; //ditto
+    private int priority;
 
-    public Event(String title, String date, int startTime, int endTime) {
+    public Event(String title, String date, int startTime, int endTime, int priority) {
         this.title = title;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.priority = priority;
     }
 
     public String getTitle() {
@@ -26,6 +28,10 @@ public class Event {
         return endTime;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
     @Override
     public String toString() {
         return "Event{" + //external
@@ -33,6 +39,7 @@ public class Event {
                 ", date='" + date + '\'' +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
+                ", priority=" + priority +
                 '}';
     }
 }
