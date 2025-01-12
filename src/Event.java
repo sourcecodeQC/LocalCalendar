@@ -37,8 +37,8 @@ public class Event {
         return "Event{" + //external
                 "title='" + title + '\'' +
                 ", date='" + date + '\'' +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
+                ", startTime=" + MinToHHMM.convertToHHMM(startTime) +
+                ", endTime=" + MinToHHMM.convertToHHMM(endTime) +
                 ", priority=" + priority +
                 '}';
     }
