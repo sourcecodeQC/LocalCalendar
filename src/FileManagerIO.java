@@ -2,5 +2,5 @@ import java.nio.*; // java.io.Serializable - suggested by ai; learned from exter
 import java.io.*;
 import java.util.*;
 
-public class FlieManagerIO {
+public class FileManagerIO {
 }
