@@ -35,7 +35,7 @@ public class CalendarManager {
     }
 
     public void deleteEvent(String title) {
-        boolean removed = events.removeIf(event -> event.getTitle().equalsIgnoreCase(title));
+        boolean removed = events.removeIf(event -> event.getTitle().equalsIgnoreCase(title)); // lambda expr (->) suggested by ai; learned from https://www.w3schools.com/java/java_lambda.asp
         if (removed) {
             System.out.println("Event deleted: " + title);
         } else {
