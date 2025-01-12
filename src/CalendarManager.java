@@ -1,26 +1,29 @@
 import java.util.ArrayList; //suggested by ai; learned from external source
 import java.util.List; //suggested by ai; learned from external source
 
+
 public class CalendarManager {
     private List<Event> events;
 
     public CalendarManager() {
-        events = new ArrayList<>(); //https://www.w3schools.com/java/java_arraylist.asp
+        events = new ArrayList<>(); // Initialize the list of events - https://www.w3schools.com/java/java_arraylist.asp
     }
 
     public void addEvent(String title, String date, int startHHMM, int endHHMM, int priority) {
-        // Suggestion of teacher; compute on minutes from midnight, allow input as hhmm
+        // Convert HHMM to minutes from midnight // Suggestion of teacher; compute on minutes from midnight, allow input as hhmm
         int startTime = HourToMin.convertToMin(startHHMM);
         int endTime = HourToMin.convertToMin(endHHMM);
 
-        //Collision test
-        if(PriorityCollisionHandler.checkCollision(events, date, startTime, endTime, priority)){
-            System.out.println("Event may not be added, due to a collision with an existing event");
+        // Check for collision with existing events //Collision test
+        Event newEvent = new Event(title, date, startTime, endTime, priority);
+        if (PriorityCollisionHandler.checkCollision(events, newEvent)) {
+            System.out.println("Event may not be added due to a collision with an existing event.");
             return;
         }
 
-        events.add(new Event(title, date, startTime, endTime, priority));
-        System.out.println("Event added: " + title + " ;from: " + startHHMM + " ;to: " + endHHMM + " ;with priority: " + priority);
+        // Add the new event to the list
+        events.add(newEvent);
+        System.out.println("Event added: " + title + " ; from: " + startHHMM + " ; to: " + endHHMM + " ; with priority: " + priority);
     }
 
     public void listEvents() {
