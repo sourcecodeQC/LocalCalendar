@@ -28,18 +28,22 @@ public class Main {
                     int priority = scx.nextInt();
                     calendarManager.addEvent(title, date, startHMM, endHHMM, priority);
                     break;
+
                 case "list":
                     calendarManager.listEvents();
                     break;
+
                 case "delete":
                     System.out.print("Enter event title to delete: ");
                     String titleToDelete = scx.nextLine();
                     calendarManager.deleteEvent(titleToDelete);
                     break;
+
                 case "exit":
                     System.out.println("Exiting the Calendar Manager.");
                     scx.close();
                     return;
+
                 default:
                     System.out.println("Unknown command. Please try again.");
             }
