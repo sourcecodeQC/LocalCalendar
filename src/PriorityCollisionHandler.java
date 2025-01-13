@@ -117,7 +117,7 @@ public class PriorityCollisionHandler {
     private static void moveEvent(Event existingEvent, Event newEvent) {
         // Move the existing event to create a gap of 15 minutes
         int newStartTime = newEvent.getEndTime() + 15; // 15 minutes after the new event
-        existingEvent.setStartTime(newStartTime ); // Update the start time using setter
+        existingEvent.setStartTime(newStartTime); // Update the start time using setter
         existingEvent.setEndTime(newStartTime + (existingEvent.getEndTime() - existingEvent.getStartTime())); // Adjust end time using setter
         System.out.println("Existing event moved to: " + existingEvent);
     }
