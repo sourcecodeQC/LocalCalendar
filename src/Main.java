@@ -8,7 +8,7 @@ public class Main {
         String command;
 
         System.out.println("Local Calendar Manager");
-        System.out.println("Available commands: add, list, delete, exit");
+        System.out.println("Available commands: add, list, save, delete, exit");
 
         while (true) {
             System.out.print("Enter command: ");
@@ -31,6 +31,11 @@ public class Main {
 
                 case "list":
                     calendarManager.listEvents();
+                    break;
+
+                case "save":
+                    System.out.println("Saving ..."); // i did not know how to italize output
+                    calendarManager.saveEvents();
                     break;
 
                 case "delete":
