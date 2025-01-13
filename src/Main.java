@@ -40,7 +40,8 @@ public class Main {
                     break;
 
                 case "exit":
-                    System.out.println("Exiting the Calendar Manager.");
+                    calendarManager.saveEvents();;
+                    System.out.println("Saved; Exiting.");
                     scx.close();
                     return;
 

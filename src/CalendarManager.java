@@ -6,8 +6,15 @@ public class CalendarManager {
     private List<Event> events;
 
     public CalendarManager() {
-        events = new ArrayList<>(); // Initialize the list of events - https://www.w3schools.com/java/java_arraylist.asp
+        events = FileManagerIO.loadEvents(); // fetch
+        if (events == null) {
+            events = new ArrayList<>(); // Initialize if loading fails // Initialize the list of events - https://www.w3schools.com/java/java_arraylist.asp
+        }
     }
+
+    //public CalendarManager() {
+        //events = new ArrayList<>(); // Initialize the list of events - https://www.w3schools.com/java/java_arraylist.asp
+    //}
 
     public void addEvent(String title, String date, int startHHMM, int endHHMM, int priority) {
         // Convert HHMM to minutes from midnight // Suggestion of teacher; compute on minutes from midnight, allow input as hhmm
@@ -44,5 +51,9 @@ public class CalendarManager {
         } else {
             System.out.println("Event not found: " + title);
         }
+    }
+
+    public void saveEvents() {
+        FileManagerIO.saveEvents(events);
     }
 }
