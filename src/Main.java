@@ -25,7 +25,7 @@ public class Main {
                     int endHHMM = scx.nextInt();
                     System.out.print("Enter priority (integer): ");
                     int priority = scx.nextInt();
-                    scx.nextLine(); // Consume the newline character
+                    scx.nextLine();
                     calendarManager.addEvent(title, date, startHHMM, endHHMM, priority);
                     break;
 
