@@ -27,7 +27,9 @@ public class FileManagerIO {
                 writer.newLine(); // Move to the next line for the next event
             }
             System.out.println("Events saved to " + FILENAME);
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
             System.err.println("Error saving events: " + e.getMessage());
         }
     }
@@ -51,12 +53,19 @@ public class FileManagerIO {
                     events.add(new Event(title, date, startTime, endTime, priority));
                 }
             }
+
+
             System.out.println("Events loaded from " + FILENAME);
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
             System.err.println("Error loading events: " + e.getMessage());
-        } catch (NumberFormatException e) {
+        }
+
+        catch (NumberFormatException e) {
             System.err.println("Error parsing event data: " + e.getMessage());
         }
+
         return events; // Return the list of events
     }
 }
