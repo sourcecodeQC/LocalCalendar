@@ -44,6 +44,10 @@ public class CalendarManager {
         }
     }
 
+    public void saveEvents() {
+        FileManagerIO.saveEvents(events);
+    }
+
     public void deleteEvent(String title) {
         boolean removed = events.removeIf(event -> event.getTitle().equalsIgnoreCase(title)); // lambda expr (->) suggested by ai; learned from https://www.w3schools.com/java/java_lambda.asp
         if (removed) {
@@ -51,10 +55,6 @@ public class CalendarManager {
         } else {
             System.out.println("Event not found: " + title);
         }
-    }
-
-    public void saveEvents() {
-        FileManagerIO.saveEvents(events);
     }
 
     public void deleteAllEvents() {
