@@ -1,5 +1,4 @@
-import java.io.*;
-import java.nio.*; // java.io.Serializable - suggested by ai; learned from external source https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html and https://www.geeksforgeeks.org/serializable-interface-in-java/
+import java.io.*; //to use writer suggested by ia - learned from https://www.programiz.com/java-programming/writer
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,20 +10,22 @@ public class FileManagerIO {
     public static void saveEvents(List<Event> events) {
         // Create the SAVE_DATA directory if it doesn't exist
         File directory = new File(DIRECTORY_NAME);
+
         if (!directory.exists()) {
             directory.mkdir(); // Create the directory
         }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME))) {
+        try (BufferedWriter outputIO = new BufferedWriter(new FileWriter(FILENAME))) {
             // Write header
-            writer.write("Title,Date,StartTime,EndTime,Priority");
-            writer.newLine();
+            outputIO.write("Title,Date,StartTime,EndTime,Priority");
+            outputIO.newLine();
+
             // Write each event
             for (Event event : events) {
-                writer.write(event.getTitle() + "," + event.getDate() + "," +
+                outputIO.write(event.getTitle() + "," + event.getDate() + "," +
                         event.getStartTime() + "," + event.getEndTime() + "," +
                         event.getPriority());
-                writer.newLine(); // Move to the next line for the next event
+                outputIO.newLine(); // Move to the next line for the next event
             }
             System.out.println("Events saved to " + FILENAME);
         }
@@ -37,13 +38,16 @@ public class FileManagerIO {
     // Load events from a CSV file
     public static List<Event> loadEvents() {
         List<Event> events = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILENAME))) {
+        try (BufferedReader fetchIO = new BufferedReader(new FileReader(FILENAME))) {
             String line;
+
             // Skip header
-            reader.readLine();
+            fetchIO.readLine();
+
             // Read each line and create Event objects
-            while ((line = reader.readLine()) != null) {
+            while ((line = fetchIO.readLine()) != null) {
                 String[] parts = line.split(",");
+
                 if (parts.length == 5) { // Ensure there are 5 parts
                     String title = parts[0];
                     String date = parts[1];
