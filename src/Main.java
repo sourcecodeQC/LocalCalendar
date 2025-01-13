@@ -50,13 +50,13 @@ public class Main {
                     }
 
                     else {
-                        System.out.println("Deletion of all events canceled.");
+                        System.out.println("Aborted");
                     }
                     break;
 
                 case "exit":
                     calendarManager.saveEvents(); // Save events before exiting
-                    System.out.println("Exiting the Calendar Manager.");
+                    System.out.println("Exiting & Saving.");
                     scx.close();
                     return;
 
@@ -75,7 +75,7 @@ public class Main {
         String confirmation2 = scx.nextLine();
         if (!confirmation2.equalsIgnoreCase("Y")) return false;
 
-        System.out.println("Final confirmation needed. Y/N?: ");
+        System.out.println("Final confirmation. Y/N?: ");
         String confirmation3 = scx.nextLine();
         return confirmation3.equalsIgnoreCase("Y");
     }
