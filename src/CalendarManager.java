@@ -56,4 +56,10 @@ public class CalendarManager {
     public void saveEvents() {
         FileManagerIO.saveEvents(events);
     }
+
+    public void deleteAllEvents() {
+        events.clear(); // Clear the list
+        System.out.println("All events deleted.");
+        FileManagerIO.saveEvents(events); // save empty list
+    }
 }
