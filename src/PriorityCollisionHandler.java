@@ -26,28 +26,36 @@ public class PriorityCollisionHandler {
             String override = scx.nextLine();
             if (override.equalsIgnoreCase("Y")) {
                 moveEvent(existingEvent, newEvent);
-            } else {
+            }
+            else {
                 System.out.println("New Event Aborted");
                 return true; // Collision detected, event not added
             }
-        } else if (existingEvent.getPriority() > newEvent.getPriority()) { // New event has higher priority
+        }
+
+        else if (existingEvent.getPriority() > newEvent.getPriority()) { // New event has higher priority
             System.out.println("Conflicting event: " + existingEvent);
             System.out.println("New event has higher priority! Override? Y/N: ");
             String override = scx.nextLine();
             if (override.equalsIgnoreCase("Y")) {
                 moveEvent(newEvent, existingEvent);
-            } else {
+            }
+            else {
                 System.out.println("New Event Aborted");
                 return true; // Collision detected, event not added
             }
-        } else {
+        }
+
+        else {
             // Both events have the same priority
             System.out.println("Conflicting event: " + existingEvent);
             System.out.println("Both events have the same priority! Override? Y/N: ");
             String override = scx.nextLine();
             if (override.equalsIgnoreCase("Y")) {
                 moveEvent(newEvent, existingEvent);
-            } else {
+            }
+
+            else {
                 System.out.println("New Event Aborted");
                 return true; // Collision detected, event not added
             }
